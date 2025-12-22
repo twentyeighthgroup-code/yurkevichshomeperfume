@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yurkevich's Home Perfume | Эксклюзивный парфюм из Беларуси</title>
+    <!-- Подключаем элегантные шрифты Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-color: #FFFFFF;
+            --text-main: #2C2C2C; /* Темно-серый для читаемости мелкого текста */
+            --gold-primary: #D4AF37;
+            --gold-dark: #AA8C2C;
+            --gold-light: #F1D87E;
+            --gold-gradient: linear-gradient(45deg, #AA8C2C, #F1D87E, #D4AF37, #AA8C2C);
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
+            --transition: all 0.4s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: var(--font-sans);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- TYPOGRAPHY & GOLD EFFECTS --- */
+        h1, h2, h3 {
+            font-family: var(--font-serif);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+
+        /* Эффект металлического золота для заголовков */
+        .gold-text {
+            background: var(--gold-gradient);
+            background-size: 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 5s infinite linear;
+        }
+
+        @keyframes shine {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- HEADER --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold-dark);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #555;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--gold-primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--gold-primary);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, #fff 0%, #fcfcfc 100%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: ''; /* Декоративная рамка */
+            position: absolute;
+            top: 120px;
+            bottom: 40px;
+            left: 40px;
+            right: 40px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #888;
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-dark);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: var(--transition);
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            background-color: var(--gold-primary);
+            color: #fff;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+        }
+
+        /* --- ABOUT --- */
+        .about {
+            padding: 100px 10%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--gold-dark);
+        }
+
+        .about p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+            font-weight: 300;
+        }
+
+        /* --- COLLECTION --- */
+        .collection {
+            padding: 50px 5% 100px;
+            background-color: #fbfbfb;
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .product-card {
+            background: #fff;
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.03);
+            border-color: rgba(212, 175, 55, 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 350px;
+            background-color: #f4f4f4; /* Плейсхолдер для фото */
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ccc;
+            font-family: var(--font-serif);
+            font-style: italic;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Имитация фото флакона */
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-family: var(--font-sans);
+            color: var(--gold-dark);
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #fff;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--gold-dark);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #888;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        /* --- MOBILE ADAPTIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero::before { display: none; }
+            nav { display: none; } /* В реальном проекте здесь нужен бургер */
+            header { justify-content: center; }
+            .collection-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <div class="logo">Yurkevich's</div>
+        <nav>
+            <ul>
+                <li><a href="#about">О бренде</a></li>
+                <li><a href="#collection">Коллекция</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero">
+        <span class="hero-subtitle">EST. 2023 • BELARUS</span>
+        <h1 class="gold-text">Yurkevich's<br>Home Perfume</h1>
+        <p style="margin-bottom: 40px; color: #666; max-width: 600px;">
+            Искусство ароматов, вдохновленное природой Беларуси и роскошью момента.
+        </p>
+        <a href="#collection" class="btn">Смотреть каталог</a>
+    </section>
+
+    <!-- О нас -->
+    <section id="about" class="about">
+        <h2 class="section-title">Философия Аромата</h2>
+        <p>
+            Yurkevich's Home Perfume — это больше, чем просто запах. Это атмосфера вашего дома. 
+            Мы создаем эксклюзивные интерьерные духи и парфюм, используя редкие ингредиенты и 
+            белорусские традиции ремесла. Каждый флакон наполнен теплом, элегантностью и 
+            золотым сиянием уюта.
+        </p>
+        <div style="margin-top: 30px; font-family: var(--font-serif); font-style: italic; color: var(--gold-dark);">
+            — Создано с любовью в Минске
+        </div>
+    </section>
+
+    <!-- Коллекция -->
+    <section id="collection" class="collection">
+        <div style="text-align: center;">
+            <h2 class="section-title">Бестселлеры</h2>
+            <div style="width: 50px; height: 2px; background: var(--gold-primary); margin: 0 auto;"></div>
+        </div>
+
+        <div class="collection-grid">
+            <!-- Товар 1 -->
+            <article class="product-card">
+                <div class="product-image">
+                    <!-- Используем плейсхолдер с Unsplash -->
+                    <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Minsk Evening">
+                </div>
+                <h3 class="product-title">Minsk Evening</h3>
+                <span class="product-price">120 BYN</span>
+                <a href="#" class="btn" style="padding: 10px 30px; font-size: 0.7rem;">В корзину</a>
+            </article>
+
+            <!-- Товар 2 -->
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Golden Forest">
+                </div>
+                <h3 class="product-title">Golden Forest</h3>
+                <span class="product-price">145 BYN</span>
+                <a href="#" class="btn" style="padding: 10px 30px; font-size: 0.7rem;">В корзину</a>
+            </article>
+
+            <!-- Товар 3 -->
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1585218356057-dc276d38d06d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="White Amber">
+                </div>
+                <h3 class="product-title">White Amber</h3>
+                <span class="product-price">130 BYN</span>
+                <a href="#" class="btn" style="padding: 10px 30px; font-size: 0.7rem;">В корзину</a>
+            </article>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer id="contact">
+        <div class="footer-logo">Yurkevich's</div>
+        <div class="footer-links">
+            <a href="#">Instagram</a>
+            <a href="#">Telegram</a>
+            <a href="#">Доставка</a>
+        </div>
+        <p class="copyright">
+            &copy; 2023 Yurkevich's Home Perfume. Все права защищены.<br>
+            Разработано с душой в Беларуси.
+        </p>
+    </footer>
+
+</body>
+</html>
